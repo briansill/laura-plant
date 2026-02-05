@@ -4,7 +4,7 @@ import {logo as logoClass} from "./Banner.module.css"
 const subtitleSytle = {
     fontStyle: "italic",
     fontSize: "x-large",
-    color: "coral",
+    color: "green",
 };
 
 const Banner = ({children}) => {

@@ -1,5 +1,6 @@
 import Banner from "./components/Banner"
 import './App.css'
+import PlantList from "./components/PlantList"
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Banner>
         <div>Indoor Plant Caring Guide</div>
       </Banner>
+      <PlantList />
     </>
   )
 }
