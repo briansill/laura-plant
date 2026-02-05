@@ -4,8 +4,8 @@ const PlantRow = ({ plant }) => {
         <tr>
             <td>{plant.genus}</td>
             <td>{plant.species}</td>
-            <td><img src={plant.picture} alt="image n/a" /></td>
             <td>{plant.lastWatered}</td>
+            <td>{plant.lastFed}</td>
         </tr>
     );
 };

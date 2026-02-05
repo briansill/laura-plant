@@ -7,24 +7,28 @@ const plantArray = [
         genus: "Hoya",
         species: "Undulata",
         lastWatered: "2/3/2026",
+        lastFed: "1/16/2026",
     },
     {
         id: 2,
         genus: "Hoya",
         species: "Kanyakumariana",
         lastWatered: "2/4/2026",
+        lastFed: "1/7/2026",
     },
     {
         id: 3,
         genus: "Hoya",
         species: "Manipurensis",
         lastWatered: "2/5/2026",
+        lastFed: "1/16/2026",
     },
     {
         id: 4,
         genus: "Hoya",
         species: "Polyneural (outer var)",
         lastWatered: "2/3/2026",
+        lastFed: "1/9/2026",
     },
 ];
 
@@ -38,6 +42,7 @@ const PlantList = () => {
                 genus: "Hoya",
                 species: "Phuwuaensis",
                 lastWatered: "2/5/2026",
+                lastFed: "1/21/2026",
             },
         ]);
     };
@@ -53,11 +58,11 @@ const PlantList = () => {
                 <thead>
                     <th>Genus</th>
                     <th>Species</th>
-                    <th>Photo</th>
                     <th>Last Watered</th>
+                    <th>Last Fed</th>
                 </thead>
                 <tbody>
-                    {plants.map(h => <PlantRow key={h.id} plant={h} />)}
+                    {plants.map(p => <PlantRow key={p.id} plant={p} />)}
                 </tbody>
             </table>
             <button onClick={addPlant} className="btn btn-primary">
