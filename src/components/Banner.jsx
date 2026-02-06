@@ -1,4 +1,4 @@
-import logo from "../assets/Laura Loves Plants Logo_Draft_1.png"
+import logo from "../assets/Laura_Loves_Hoyas_Logo1.png"
 import {logo as logoClass} from "./Banner.module.css"
 
 const subtitleSytle = {

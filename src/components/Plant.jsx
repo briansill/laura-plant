@@ -1,5 +1,5 @@
 
-const Plant = ({plant}) => {
+const Plant = ({plant, selectPlant}) => {
     return (
         <div className="row mh-50">
             <div className="col-6">
@@ -27,6 +27,11 @@ const Plant = ({plant}) => {
                     </div>
                     <div className="row">
                         <div className="col-12" mt-3>Next Feeding: {plant.lastFed}</div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12" mt-3 onClick={() => selectPlant()} >
+                            Return to List
+                        </div>
                     </div>
                 </div>
             </div>
