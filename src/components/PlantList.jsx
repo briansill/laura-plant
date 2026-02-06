@@ -6,6 +6,7 @@ const plantArray = [
         id: 1,
         genus: "Hoya",
         species: "Undulata",
+        photoId: "undulata",
         lastWatered: "2/3/2026",
         lastFed: "1/16/2026",
     },
@@ -13,6 +14,7 @@ const plantArray = [
         id: 2,
         genus: "Hoya",
         species: "Kanyakumariana",
+        photoId: "kanya",
         lastWatered: "2/4/2026",
         lastFed: "1/7/2026",
     },
@@ -20,6 +22,7 @@ const plantArray = [
         id: 3,
         genus: "Hoya",
         species: "Manipurensis",
+        photoId: "mani",
         lastWatered: "2/5/2026",
         lastFed: "1/16/2026",
     },
@@ -27,12 +30,13 @@ const plantArray = [
         id: 4,
         genus: "Hoya",
         species: "Polyneural (outer var)",
+        photoId: "polyne",
         lastWatered: "2/3/2026",
         lastFed: "1/9/2026",
     },
 ];
 
-const PlantList = () => {
+const PlantList = ({selectPlant}) => {
     const [plants, setPlants] = useState(plantArray);
     const addPlant = () => {
         setPlants([
@@ -41,6 +45,7 @@ const PlantList = () => {
                 id: 5,
                 genus: "Hoya",
                 species: "Phuwuaensis",
+                photoId: "phuwua",
                 lastWatered: "2/5/2026",
                 lastFed: "1/21/2026",
             },
@@ -62,7 +67,8 @@ const PlantList = () => {
                     <th>Last Fed</th>
                 </thead>
                 <tbody>
-                    {plants.map(p => <PlantRow key={p.id} plant={p} />)}
+                    {plants.map(p => <PlantRow key={p.id} 
+                        selectPlant={selectPlant} plant={p} />)}
                 </tbody>
             </table>
             <button onClick={addPlant} className="btn btn-primary">

@@ -1,14 +1,19 @@
 import Banner from "./components/Banner"
 import './App.css'
+import Plant from "./components/Plant"
 import PlantList from "./components/PlantList"
+import { useState } from "react"
 
 function App() {
+  const [selectedPlant, setSelectedPlant] = useState();
+
   return (
     <>
       <Banner>
         <div>Indoor Plant Caring Guide</div>
       </Banner>
-      <PlantList />
+      {selectedPlant ? <Plant plant={selectedPlant} />
+        : <PlantList selectPlant={setSelectedPlant} />}
     </>
   )
 }

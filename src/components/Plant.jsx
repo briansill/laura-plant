@@ -1,13 +1,13 @@
 
 const Plant = ({plant}) => {
     return (
-        <div className="row">
+        <div className="row mh-50">
             <div className="col-6">
-                <div className="row">
+                <div className="row mh-50">
                     <img
                         className="img-fluid"
                         src={
-                            plant.photoId ? `./plantPhotos/${plant.photoId}.jpeg`
+                            plant.photoId ? `./plantPhotos/${plant.photoId}.jpg`
                             : ".defaultphoto.png"
                         }
                         alt="plant pic"
@@ -23,13 +23,15 @@ const Plant = ({plant}) => {
                         <h3 className="col-12">{plant.species}</h3>
                     </div>
                     <div className="row">
-                        <h3 className="col-12" mt-3>Next Watering: {plant.lastWatered}</h3>
+                        <div className="col-12" mt-3>Next Watering: {plant.lastWatered}</div>
                     </div>
                     <div className="row">
-                        <h3 className="col-12" mt-3>Next Feeding: {plant.lastFed}</h3>
+                        <div className="col-12" mt-3>Next Feeding: {plant.lastFed}</div>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
+
+export default Plant;
