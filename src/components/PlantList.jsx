@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PlantRow from "./PlantRow";
+import ErrorBoundary from "./ErrorBoundary";
 
 const plantArray = [
     {
@@ -67,8 +68,10 @@ const PlantList = ({selectPlant}) => {
                     <th>Last Fed</th>
                 </thead>
                 <tbody>
-                    {plants.map(p => <PlantRow key={p.id} 
-                        selectPlant={selectPlant} plant={p} />)}
+                    <ErrorBoundary fallback="Something went wrong loading the plant list. Please refresh the page.">
+                        {plants.map(p => <PlantRow key={p.id} 
+                            selectPlant={selectPlant} plant={p} />)}
+                    </ErrorBoundary>
                 </tbody>
             </table>
             <button onClick={addPlant} className="btn btn-primary">

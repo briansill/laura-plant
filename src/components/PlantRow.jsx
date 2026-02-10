@@ -1,7 +1,7 @@
 
 const PlantRow = ({ plant, selectPlant }) => {
     return (
-        <tr onClick={() => selectPlant(plant, selectPlant)}>
+        <tr onClick={() => selectPlant(plant, selectPlant = {selectPlant})}>
             <td>{plant.genus}</td>
             <td>{plant.species}</td>
             <td>{plant.lastWatered}</td>
