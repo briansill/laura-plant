@@ -1,22 +1,32 @@
-import Banner from "./components/Banner"
-import './App.css'
-import Plant from "./components/Plant"
-import PlantList from "./components/PlantList"
-import { useState } from "react"
-import ErrorBoundary from "./components/ErrorBoundary"
+import Banner from "./components/Banner";
+import './App.css';
+import ErrorBoundary from "./components/ErrorBoundary";
+import { useCallback, useState } from "react";
+import navValues from "./navigation/navValues";
+import navigationContext from "./navigation/navigationContext";
+import ComponentPicker from "./components/ComponentPicker";
 
 function App() {
-  const [selectedPlant, setSelectedPlant] = useState();
+  const navigate = useCallback(
+    (navTo, param) => setNav({ current: navTo, param, navigate }),
+    []
+  );
+
+  const [nav, setNav] = useState({ current: navValues.home, navigate });
 
   console.log("starting up App");
   return (
-    <ErrorBoundary fallback="Something went wrong loading App.">
-      <Banner>
-        <div>Plant Caring Journal</div>
-      </Banner>
-      {selectedPlant ? <Plant plant={selectedPlant} />
-        : <PlantList selectPlant={setSelectedPlant} />}
-    </ErrorBoundary>
+    <navigationContext.Provider value={nav}>
+      <ErrorBoundary fallback="Something went wrong loading App.">
+        
+        <Banner>
+          <div>Plant Caring Journal</div>
+        </Banner>
+
+        <ComponentPicker currentNavLocation={nav.current} />
+
+      </ErrorBoundary>
+    </navigationContext.Provider>
   )
 }
 

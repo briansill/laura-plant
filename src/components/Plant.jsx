@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import navigationContext from "../navigation/navigationContext";
 
-const Plant = ({plant, selectPlant}) => {
+const Plant = () => {
+    const { param: plant} = useContext(navigationContext);
+
     return (
         <div className="row mh-50">
             <div className="col-6">
@@ -27,11 +31,6 @@ const Plant = ({plant, selectPlant}) => {
                     </div>
                     <div className="row">
                         <div className="col-12" mt-3>Next Feeding: {plant.lastFed}</div>
-                    </div>
-                    <div className="row">
-                        <div className="col-12" mt-3 onClick={() => selectPlant()} >
-                            Return to List
-                        </div>
                     </div>
                 </div>
             </div>

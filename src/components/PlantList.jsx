@@ -4,7 +4,7 @@ import usePlants from "../hooks/usePlants";
 import LoadingIndicator from "./LoadingIndicator";
 import loadingStatus from "../helpers/loadingStatus";
 
-const PlantList = ({selectPlant}) => {
+const PlantList = () => {
     const {plants, setPlants, loadingState} = usePlants();
     
     if (loadingState !== loadingStatus.loaded)
@@ -42,8 +42,7 @@ const PlantList = ({selectPlant}) => {
                 </thead>
                 <tbody>
                     <ErrorBoundary fallback="Something went wrong loading the plant list. Please refresh the page.">
-                        {plants.map(p => <PlantRow key={p.id} 
-                            selectPlant={selectPlant} plant={p} />)}
+                        {plants.map(p => <PlantRow key={p.id} plant={p} />)}
                     </ErrorBoundary>
                 </tbody>
             </table>
