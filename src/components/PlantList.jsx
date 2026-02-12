@@ -1,10 +1,15 @@
 import PlantRow from "./PlantRow";
 import ErrorBoundary from "./ErrorBoundary";
 import usePlants from "../hooks/usePlants";
+import LoadingIndicator from "./LoadingIndicator";
+import loadingStatus from "../helpers/loadingStatus";
 
 const PlantList = ({selectPlant}) => {
-    const {plants, setPlants} = usePlants();
+    const {plants, setPlants, loadingState} = usePlants();
     
+    if (loadingState !== loadingStatus.loaded)
+        return <LoadingIndicator loadingState={loadingState} />
+
     const addPlant = () => {
         setPlants([
             ...plants,
@@ -28,10 +33,12 @@ const PlantList = ({selectPlant}) => {
             </div>
             <table className="table table-hover">
                 <thead>
-                    <th>Genus</th>
-                    <th>Species</th>
-                    <th>Last Watered</th>
-                    <th>Last Fed</th>
+                    <tr>
+                        <th>Genus</th>
+                        <th>Species</th>
+                        <th>Last Watered</th>
+                        <th>Last Fed</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <ErrorBoundary fallback="Something went wrong loading the plant list. Please refresh the page.">

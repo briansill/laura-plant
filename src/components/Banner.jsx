@@ -3,7 +3,7 @@ import {logo as logoClass} from "./Banner.module.css"
 
 const subtitleSytle = {
     fontStyle: "italic",
-    fontSize: "x-large",
+    fontSize: "xxx-large",
     color: "green",
 };
 

@@ -8,10 +8,11 @@ import ErrorBoundary from "./components/ErrorBoundary"
 function App() {
   const [selectedPlant, setSelectedPlant] = useState();
 
+  console.log("starting up App");
   return (
     <ErrorBoundary fallback="Something went wrong loading App.">
       <Banner>
-        <div>Indoor Plant Caring Guide</div>
+        <div>Plant Caring Journal</div>
       </Banner>
       {selectedPlant ? <Plant plant={selectedPlant} />
         : <PlantList selectPlant={setSelectedPlant} />}

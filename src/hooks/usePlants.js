@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import loadingStatus from "../helpers/loadingStatus";
 
 const plantArray = [
     {
@@ -38,10 +39,32 @@ const plantArray = [
 
 const usePlants = () => {
     const [plants, setPlants] = useState(plantArray);
+    const [loadingState, setLoadingState] = useState(loadingStatus.isLoading);
+    const apiKey = import.meta.env.VITE_API_KEY;
 
-    // TODO call new API
+    console.log("about to useEffect");
+    useEffect (() => {
+        const fetchPlants = async () => {
+            setLoadingState(loadingStatus.isLoading);
+            try {
+                const response = await fetch("https://api.briansill.com/plants",{
+                    method: 'GET',
+                    headers: {
+                        'X-API-KEY' : apiKey,
+                        'Content-Type' : 'application/json',
+                    },
+                });
+                const plants = await response.json();
+                setPlants(plants);
+                setLoadingState(loadingStatus.loaded);
+            } catch {
+                setLoadingState(loadingStatus.hasErrored);
+            }
+        };
+        fetchPlants();
+    }, []);
 
-    return {plants, setPlants};
+    return {plants, setPlants, loadingState};
 
 };
 
