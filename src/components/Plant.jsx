@@ -11,7 +11,7 @@ const Plant = () => {
                     <img
                         className="img-fluid"
                         src={
-                            plant.photoId ? `./plantPhotos/${plant.photoId}.jpg`
+                            plant.photoId ? `https://plant-photos.briansill.com/${plant.photoId}.jpg`
                             : ".defaultphoto.png"
                         }
                         alt="plant pic"
@@ -27,10 +27,10 @@ const Plant = () => {
                         <h3 className="col-12">{plant.species}</h3>
                     </div>
                     <div className="row">
-                        <div className="col-12" mt-3>Next Watering: {plant.lastWatered}</div>
+                        <div className="col-12 mt-3">Next Watering: {plant.lastWatered}</div>
                     </div>
                     <div className="row">
-                        <div className="col-12" mt-3>Next Feeding: {plant.lastFed}</div>
+                        <div className="col-12 mt-3">Next Feeding: {plant.lastFed}</div>
                     </div>
                 </div>
             </div>
