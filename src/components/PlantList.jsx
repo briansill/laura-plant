@@ -17,7 +17,7 @@ const PlantList = () => {
                 id: 5,
                 genus: "Hoya",
                 species: "Phuwuaensis",
-                photoId: "phuwua",
+                photoId: "phuwu-1.jpg",
                 lastWatered: "2/5/2026",
                 lastFed: "1/21/2026",
             },

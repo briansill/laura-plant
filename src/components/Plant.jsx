@@ -11,7 +11,7 @@ const Plant = () => {
                     <img
                         className="img-fluid"
                         src={
-                            plant.photoId ? `https://plant-photos.briansill.com/${plant.photoId}.jpg`
+                            plant.photoId ? `https://laura-loves-hoyas.briansill.com/images/${plant.photoId}.jpg`
                             : ".defaultphoto.png"
                         }
                         alt="plant pic"
