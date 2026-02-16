@@ -3,9 +3,12 @@ import ErrorBoundary from "./ErrorBoundary";
 import usePlants from "../hooks/usePlants";
 import LoadingIndicator from "./LoadingIndicator";
 import loadingStatus from "../helpers/loadingStatus";
+import { useAuth } from "react-oidc-context";
+
 
 const PlantList = () => {
     const {plants, setPlants, loadingState} = usePlants();
+    const auth = useAuth();
     
     if (loadingState !== loadingStatus.loaded)
         return <LoadingIndicator loadingState={loadingState} />
@@ -46,9 +49,11 @@ const PlantList = () => {
                     </ErrorBoundary>
                 </tbody>
             </table>
-            <button onClick={addPlant} className="btn btn-primary">
-                Add
-            </button>
+            {auth.isAuthenticated ? (
+                <button onClick={addPlant} className="btn btn-primary">
+                    Add
+                </button>
+            ) : (<div>login to add plants</div>) }
         </>
     );
 };

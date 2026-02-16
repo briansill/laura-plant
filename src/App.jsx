@@ -3,8 +3,8 @@ import './App.css';
 import ErrorBoundary from "./components/ErrorBoundary";
 import { useCallback, useState } from "react";
 import navValues from "./navigation/navValues";
-import navigationContext from "./navigation/navigationContext";
 import ComponentPicker from "./components/ComponentPicker";
+
 
 function App() {
   const navigate = useCallback(

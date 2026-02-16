@@ -3,6 +3,7 @@ import PlantList from "./PlantList";
 import Plant from "./Plant";
 
 const ComponentPicker = ({ currentNavLocation }) => {
+    console.log("in component picker and parameter is " + currentNavLocation);
     switch (currentNavLocation) {
         case navValues.home:
             return <PlantList />;
