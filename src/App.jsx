@@ -4,7 +4,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { useCallback, useState } from "react";
 import navValues from "./navigation/navValues";
 import ComponentPicker from "./components/ComponentPicker";
-
+import navigationContext from "./navigation/navigationContext";
 
 function App() {
   const navigate = useCallback(
